@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fe3a6a69d9c85d48d45bbdbc8afc41f1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+    <script>
+        function toggleMarkers(map) {
+            var zoomLevel = map.getZoom();
+            var markers = [[[8.4841, 76.9527], [8.4841, 76.9527]], [[8.4952, 76.9481], [8.4952, 76.9481]]];
+            
+            // Loop through markers and toggle visibility based on zoom level
+            markers.forEach(function(marker) {
+                if (zoomLevel >= 13) {
+                    marker.addTo(map);
+                } else {
+                    map.removeLayer(marker);
+                }
+            });
+        }
+        
+        // Add listener for zoom changes
+        map.on('zoomend', function() {
+            toggleMarkers(map);
+        });
+        
+        // Initial call to set visibility based on the current zoom level
+        toggleMarkers(map);
+    </script>
+    
+            <div class="folium-map" id="map_fe3a6a69d9c85d48d45bbdbc8afc41f1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fe3a6a69d9c85d48d45bbdbc8afc41f1 = L.map(
+                "map_fe3a6a69d9c85d48d45bbdbc8afc41f1",
+                {
+                    center: [8.4869, 76.9529],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0c5036c929a552675d57c48ab73b39e4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 15, "minZoom": 5, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_0c5036c929a552675d57c48ab73b39e4.addTo(map_fe3a6a69d9c85d48d45bbdbc8afc41f1);
+        
+    
+            var heat_map_fbbfee9440a2a3e0d70ebc2831da99ef = L.heatLayer(
+                [[8.4841, 76.9527, 120], [8.4952, 76.9481, 200]],
+                {"blur": 15, "gradient": {"0.2": "blue", "0.4": "green", "0.6": "yellow", "0.8": "red"}, "maxOpacity": 0.8, "maxZoom": 18, "minOpacity": 0.2, "radius": 20}
+            );
+        
+    
+            heat_map_fbbfee9440a2a3e0d70ebc2831da99ef.addTo(map_fe3a6a69d9c85d48d45bbdbc8afc41f1);
+        
+    
+            var marker_ebe8d285f5d6d4da720d326e19fa9b06 = L.marker(
+                [8.4841, 76.9527],
+                {}
+            ).addTo(map_fe3a6a69d9c85d48d45bbdbc8afc41f1);
+        
+    
+        var popup_535a56df93aee95e40c319a2825d22b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_27ca3aca4da25d09cf746219e21ad4b2 = $(`<div id="html_27ca3aca4da25d09cf746219e21ad4b2" style="width: 100.0%; height: 100.0%;"><b>East Fort North Bus Stand</b><br>Passenger count: 120</div>`)[0];
+                popup_535a56df93aee95e40c319a2825d22b3.setContent(html_27ca3aca4da25d09cf746219e21ad4b2);
+            
+        
+
+        marker_ebe8d285f5d6d4da720d326e19fa9b06.bindPopup(popup_535a56df93aee95e40c319a2825d22b3)
+        ;
+
+        
+    
+    
+            marker_ebe8d285f5d6d4da720d326e19fa9b06.bindTooltip(
+                `<div>
+                     East Fort North Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1541e2b32cdc43dc5e59d915a6302933 = L.marker(
+                [8.4952, 76.9481],
+                {}
+            ).addTo(map_fe3a6a69d9c85d48d45bbdbc8afc41f1);
+        
+    
+        var popup_f89fd73e193662c2b158571632dd3f17 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a115d7370caefb7b7d88b5155a28c1e = $(`<div id="html_9a115d7370caefb7b7d88b5155a28c1e" style="width: 100.0%; height: 100.0%;"><b>Thampanoor Main Bus Stand</b><br>Passenger count: 200</div>`)[0];
+                popup_f89fd73e193662c2b158571632dd3f17.setContent(html_9a115d7370caefb7b7d88b5155a28c1e);
+            
+        
+
+        marker_1541e2b32cdc43dc5e59d915a6302933.bindPopup(popup_f89fd73e193662c2b158571632dd3f17)
+        ;
+
+        
+    
+    
+            marker_1541e2b32cdc43dc5e59d915a6302933.bindTooltip(
+                `<div>
+                     Thampanoor Main Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

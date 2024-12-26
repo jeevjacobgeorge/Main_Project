@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c312fbb48a681c2c963eb9c35100ae45 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c312fbb48a681c2c963eb9c35100ae45" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c312fbb48a681c2c963eb9c35100ae45 = L.map(
+                "map_c312fbb48a681c2c963eb9c35100ae45",
+                {
+                    center: [8.4869, 76.9529],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1b0658cf441597b68c9b2c783c7aeea1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 15, "minZoom": 5, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_1b0658cf441597b68c9b2c783c7aeea1.addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+            var heat_map_9383ab59c18f5c239fa528e4d70456c2 = L.heatLayer(
+                [[8.5660255, 76.8737867, 149279], [8.6184233, 76.8976931, 142606], [8.5300054, 76.928621, 102220], [8.5347086, 76.9675333, 90974], [8.752773930991108, 76.94014568599381, 83801], [8.5488526, 76.9172852, 82166], [9.9287377, 76.3907088, 74976], [8.6955274, 76.81738899386528, 65142], [8.515912, 76.9344332, 54325], [8.441148, 76.9561921, 48957], [8.5876645, 76.8560703, 47392], [8.4978094, 76.9377033, 41154], [8.511472, 76.9622965, 40769], [8.5228415, 76.8902073, 38083], [8.5067738, 76.9989452, 37313], [8.4670099, 76.9473491, 36920], [8.5369849, 76.9665122, 33570], [8.4966894, 76.9482789, 33100], [10.3248518, 76.20584853737324, 32211], [8.6365921, 76.9382323, 31219], [8.3974066, 77.0880245, 31186], [8.5129415, 76.9780878, 30444], [8.4307211, 76.9704247, 28647], [8.90377505, 76.77631078061992, 28052], [8.5050876, 76.9515245, 27991], [8.5425158, 76.9416851, 27826], [8.5146047, 76.9278145, 27461], [8.5222606, 76.9605163, 26923], [8.4879699, 76.95006, 25292], [8.5823953, 76.9030474, 23850], [8.4247979, 77.0457835, 23821], [8.694916599999999, 76.81859943793987, 23806], [8.5606753, 76.9433771, 23744], [8.58342418403096, 76.90238010555564, 23695], [8.490181, 76.9584493, 22905], [8.5542509, 77.18554451838283, 22142], [8.4702552, 76.9818151, 22118], [8.5372683, 76.8801999, 21813], [10.8939429, 79.4292906, 20888], [8.616553249999999, 76.82883452858036, 20722], [8.55637265, 76.90439332488944, 20678], [8.3976294, 77.08799458872875, 20607], [8.3964587, 77.0039878, 20084], [8.4945483, 76.9641003, 19820], [8.449520849999999, 76.9487431, 18598], [9.6322151, 76.52155969122603, 18370], [8.5209794, 76.9226146, 17949], [8.4985414, 76.9357106, 17752], [8.56002775, 76.88834373124564, 17456], [8.5925816, 76.9529529, 17455], [8.4435903, 76.9440132, 17178], [8.5093458, 76.9491531, 16915], [8.6102140856223, 76.8963555330897, 16793], [8.4871867, 76.952759, 16622], [8.25877545, 77.20970959157259, 16557], [8.5420235, 76.9888936, 16341], [8.3950997, 76.9729934, 15459], [8.5206614, 76.9245217, 14570], [8.5330889, 77.0008484, 14286], [8.752773930991108, 76.94014568599381, 14134], [8.4696192, 76.9358568, 13428], [8.4538721, 77.0104923, 12685], [8.5297091, 76.9384033, 12658], [8.5024973, 76.9481, 12413], [8.4945184, 76.9014215, 12245], [8.4645301, 76.926924, 11828], [8.6966388, 76.8166527, 11372], [8.5187488, 76.9723291, 11314], [8.5072747, 76.9521051, 11083], [8.3989014, 76.9819979, 10646]],
+                {"blur": 15, "gradient": {"0.2": "blue", "0.4": "green", "0.6": "yellow", "0.8": "red"}, "maxOpacity": 0.8, "maxZoom": 18, "minOpacity": 0.2, "radius": 25}
+            );
+        
+    
+            heat_map_9383ab59c18f5c239fa528e4d70456c2.addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+            var marker_c144682052963f9a12a067913ce6979c = L.marker(
+                [8.5660255, 76.8737867],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_466b61cea453e3fa3ca0baae3b822ff5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b0e2b1fdbd163338e2952a2c0af62595 = $(`<div id="html_b0e2b1fdbd163338e2952a2c0af62595" style="width: 100.0%; height: 100.0%;"><b>Kazhakkoottam</b><br>Passenger count: 149279</div>`)[0];
+                popup_466b61cea453e3fa3ca0baae3b822ff5.setContent(html_b0e2b1fdbd163338e2952a2c0af62595);
+            
+        
+
+        marker_c144682052963f9a12a067913ce6979c.bindPopup(popup_466b61cea453e3fa3ca0baae3b822ff5)
+        ;
+
+        
+    
+    
+            marker_c144682052963f9a12a067913ce6979c.bindTooltip(
+                `<div>
+                     Kazhakkoottam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8fb5ae492571b7293d7fe360e8c4808b = L.marker(
+                [8.6184233, 76.8976931],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_915840e20c3a22f7df883591b965280b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_327bb31b425a7020c047bbe95bb10639 = $(`<div id="html_327bb31b425a7020c047bbe95bb10639" style="width: 100.0%; height: 100.0%;"><b>Pothencode</b><br>Passenger count: 142606</div>`)[0];
+                popup_915840e20c3a22f7df883591b965280b.setContent(html_327bb31b425a7020c047bbe95bb10639);
+            
+        
+
+        marker_8fb5ae492571b7293d7fe360e8c4808b.bindPopup(popup_915840e20c3a22f7df883591b965280b)
+        ;
+
+        
+    
+    
+            marker_8fb5ae492571b7293d7fe360e8c4808b.bindTooltip(
+                `<div>
+                     Pothencode
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_26ec7d40eb3427cd8f200047938eee9e = L.marker(
+                [8.5300054, 76.928621],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_1b56d81ba953628743438304fccbc39c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1245cf63a69b3c963bbcb392e49e052b = $(`<div id="html_1245cf63a69b3c963bbcb392e49e052b" style="width: 100.0%; height: 100.0%;"><b>Ulloor</b><br>Passenger count: 102220</div>`)[0];
+                popup_1b56d81ba953628743438304fccbc39c.setContent(html_1245cf63a69b3c963bbcb392e49e052b);
+            
+        
+
+        marker_26ec7d40eb3427cd8f200047938eee9e.bindPopup(popup_1b56d81ba953628743438304fccbc39c)
+        ;
+
+        
+    
+    
+            marker_26ec7d40eb3427cd8f200047938eee9e.bindTooltip(
+                `<div>
+                     Ulloor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8cfe442c264bd10e921b206608d2922e = L.marker(
+                [8.5347086, 76.9675333],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_b75ed33fa630462e3c573ac990d0806e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f6d39e4457cbfb2c1783a72961b918f7 = $(`<div id="html_f6d39e4457cbfb2c1783a72961b918f7" style="width: 100.0%; height: 100.0%;"><b>Peroorkada Depot</b><br>Passenger count: 90974</div>`)[0];
+                popup_b75ed33fa630462e3c573ac990d0806e.setContent(html_f6d39e4457cbfb2c1783a72961b918f7);
+            
+        
+
+        marker_8cfe442c264bd10e921b206608d2922e.bindPopup(popup_b75ed33fa630462e3c573ac990d0806e)
+        ;
+
+        
+    
+    
+            marker_8cfe442c264bd10e921b206608d2922e.bindTooltip(
+                `<div>
+                     Peroorkada Depot
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a27ff5b15c0c31208be3adb600961e59 = L.marker(
+                [8.752773930991108, 76.94014568599381],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_d45d694704baf81ac2f00717332037b2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ef8d42c0b8fed2ec213eb50c4e91b293 = $(`<div id="html_ef8d42c0b8fed2ec213eb50c4e91b293" style="width: 100.0%; height: 100.0%;"><b>Nedumangad Bus Stand</b><br>Passenger count: 83801</div>`)[0];
+                popup_d45d694704baf81ac2f00717332037b2.setContent(html_ef8d42c0b8fed2ec213eb50c4e91b293);
+            
+        
+
+        marker_a27ff5b15c0c31208be3adb600961e59.bindPopup(popup_d45d694704baf81ac2f00717332037b2)
+        ;
+
+        
+    
+    
+            marker_a27ff5b15c0c31208be3adb600961e59.bindTooltip(
+                `<div>
+                     Nedumangad Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a406f1191e9a8b14644cb5c1dbfcef85 = L.marker(
+                [8.5488526, 76.9172852],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_b6a256b7438a3f4edd440b636224b724 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_84e38b067ccf442b40d38954c2c87715 = $(`<div id="html_84e38b067ccf442b40d38954c2c87715" style="width: 100.0%; height: 100.0%;"><b>Sreekaryam Junction</b><br>Passenger count: 82166</div>`)[0];
+                popup_b6a256b7438a3f4edd440b636224b724.setContent(html_84e38b067ccf442b40d38954c2c87715);
+            
+        
+
+        marker_a406f1191e9a8b14644cb5c1dbfcef85.bindPopup(popup_b6a256b7438a3f4edd440b636224b724)
+        ;
+
+        
+    
+    
+            marker_a406f1191e9a8b14644cb5c1dbfcef85.bindTooltip(
+                `<div>
+                     Sreekaryam Junction
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0775a3c6aa43a8cbb57d8665d1b0a939 = L.marker(
+                [9.9287377, 76.3907088],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_81cd7c43c1d830b97f5f4fb16d698e6e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_961fa4c5526cecda08be788a5a5880c3 = $(`<div id="html_961fa4c5526cecda08be788a5a5880c3" style="width: 100.0%; height: 100.0%;"><b>East Fort Bus Stand</b><br>Passenger count: 74976</div>`)[0];
+                popup_81cd7c43c1d830b97f5f4fb16d698e6e.setContent(html_961fa4c5526cecda08be788a5a5880c3);
+            
+        
+
+        marker_0775a3c6aa43a8cbb57d8665d1b0a939.bindPopup(popup_81cd7c43c1d830b97f5f4fb16d698e6e)
+        ;
+
+        
+    
+    
+            marker_0775a3c6aa43a8cbb57d8665d1b0a939.bindTooltip(
+                `<div>
+                     East Fort Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d89146ce6889b687a61013006214dcbb = L.marker(
+                [8.6955274, 76.81738899386528],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_f3c7e9a7e070217619696398f73d9c55 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d0e53905f15e54cc50c939432908b64a = $(`<div id="html_d0e53905f15e54cc50c939432908b64a" style="width: 100.0%; height: 100.0%;"><b>Attingal Bus Station</b><br>Passenger count: 65142</div>`)[0];
+                popup_f3c7e9a7e070217619696398f73d9c55.setContent(html_d0e53905f15e54cc50c939432908b64a);
+            
+        
+
+        marker_d89146ce6889b687a61013006214dcbb.bindPopup(popup_f3c7e9a7e070217619696398f73d9c55)
+        ;
+
+        
+    
+    
+            marker_d89146ce6889b687a61013006214dcbb.bindTooltip(
+                `<div>
+                     Attingal Bus Station
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b143d13809e77827443445c0916c89b8 = L.marker(
+                [8.515912, 76.9344332],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_9cb4ea612d87b6671c3b64c3682a638a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d7cce3542ba26426ce3ecb056aa8bb41 = $(`<div id="html_d7cce3542ba26426ce3ecb056aa8bb41" style="width: 100.0%; height: 100.0%;"><b>Murinjapalam</b><br>Passenger count: 54325</div>`)[0];
+                popup_9cb4ea612d87b6671c3b64c3682a638a.setContent(html_d7cce3542ba26426ce3ecb056aa8bb41);
+            
+        
+
+        marker_b143d13809e77827443445c0916c89b8.bindPopup(popup_9cb4ea612d87b6671c3b64c3682a638a)
+        ;
+
+        
+    
+    
+            marker_b143d13809e77827443445c0916c89b8.bindTooltip(
+                `<div>
+                     Murinjapalam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd83b120fbf618e320c4654e12ee12a3 = L.marker(
+                [8.441148, 76.9561921],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_4e98f6ba0d52d6117c88f62aa10e9e8c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6f874ee7fbcfda6dd5de66ec3379a427 = $(`<div id="html_6f874ee7fbcfda6dd5de66ec3379a427" style="width: 100.0%; height: 100.0%;"><b>Thiruvallam</b><br>Passenger count: 48957</div>`)[0];
+                popup_4e98f6ba0d52d6117c88f62aa10e9e8c.setContent(html_6f874ee7fbcfda6dd5de66ec3379a427);
+            
+        
+
+        marker_dd83b120fbf618e320c4654e12ee12a3.bindPopup(popup_4e98f6ba0d52d6117c88f62aa10e9e8c)
+        ;
+
+        
+    
+    
+            marker_dd83b120fbf618e320c4654e12ee12a3.bindTooltip(
+                `<div>
+                     Thiruvallam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6d4cfe7bfbe45a7623b83591dbfd16be = L.marker(
+                [8.5876645, 76.8560703],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_fb7e94b7454cfabb4c4b9c6c737d3b3c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca81f248a4905bb62b05ebde51b0387e = $(`<div id="html_ca81f248a4905bb62b05ebde51b0387e" style="width: 100.0%; height: 100.0%;"><b>Kaniyapuram</b><br>Passenger count: 47392</div>`)[0];
+                popup_fb7e94b7454cfabb4c4b9c6c737d3b3c.setContent(html_ca81f248a4905bb62b05ebde51b0387e);
+            
+        
+
+        marker_6d4cfe7bfbe45a7623b83591dbfd16be.bindPopup(popup_fb7e94b7454cfabb4c4b9c6c737d3b3c)
+        ;
+
+        
+    
+    
+            marker_6d4cfe7bfbe45a7623b83591dbfd16be.bindTooltip(
+                `<div>
+                     Kaniyapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_18de0603812a08f749f489bf6ff0fb18 = L.marker(
+                [8.4978094, 76.9377033],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_359814bb5817168fcc82643ad5171baa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_72a8c461381b4d270ad161b2cdd9984c = $(`<div id="html_72a8c461381b4d270ad161b2cdd9984c" style="width: 100.0%; height: 100.0%;"><b>Pattoor Junction</b><br>Passenger count: 41154</div>`)[0];
+                popup_359814bb5817168fcc82643ad5171baa.setContent(html_72a8c461381b4d270ad161b2cdd9984c);
+            
+        
+
+        marker_18de0603812a08f749f489bf6ff0fb18.bindPopup(popup_359814bb5817168fcc82643ad5171baa)
+        ;
+
+        
+    
+    
+            marker_18de0603812a08f749f489bf6ff0fb18.bindTooltip(
+                `<div>
+                     Pattoor Junction
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3de203fb4d1aa695e33cc35e7597b0d4 = L.marker(
+                [8.511472, 76.9622965],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_f02ef6533930bfb79fa459ae418c8f2c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9ece2fa01107eef2af2880ec40dbc3a2 = $(`<div id="html_9ece2fa01107eef2af2880ec40dbc3a2" style="width: 100.0%; height: 100.0%;"><b>Vellayambalam</b><br>Passenger count: 40769</div>`)[0];
+                popup_f02ef6533930bfb79fa459ae418c8f2c.setContent(html_9ece2fa01107eef2af2880ec40dbc3a2);
+            
+        
+
+        marker_3de203fb4d1aa695e33cc35e7597b0d4.bindPopup(popup_f02ef6533930bfb79fa459ae418c8f2c)
+        ;
+
+        
+    
+    
+            marker_3de203fb4d1aa695e33cc35e7597b0d4.bindTooltip(
+                `<div>
+                     Vellayambalam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f19983ad7c120809742495186cc99a4c = L.marker(
+                [8.5228415, 76.8902073],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_5199ba2232809b8a7239fa40f2ae0ae5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2f6362c7fe90745cccc0512801b9f368 = $(`<div id="html_2f6362c7fe90745cccc0512801b9f368" style="width: 100.0%; height: 100.0%;"><b>Kuzhivila</b><br>Passenger count: 38083</div>`)[0];
+                popup_5199ba2232809b8a7239fa40f2ae0ae5.setContent(html_2f6362c7fe90745cccc0512801b9f368);
+            
+        
+
+        marker_f19983ad7c120809742495186cc99a4c.bindPopup(popup_5199ba2232809b8a7239fa40f2ae0ae5)
+        ;
+
+        
+    
+    
+            marker_f19983ad7c120809742495186cc99a4c.bindTooltip(
+                `<div>
+                     Kuzhivila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7304e2d73b31e03cec5458bb5ca4e2b8 = L.marker(
+                [8.5067738, 76.9989452],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_84ea352853a3af6119caf3048c51bbd0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_00f0b275b162776229c5149f7ba436ca = $(`<div id="html_00f0b275b162776229c5149f7ba436ca" style="width: 100.0%; height: 100.0%;"><b>Valiyavila</b><br>Passenger count: 37313</div>`)[0];
+                popup_84ea352853a3af6119caf3048c51bbd0.setContent(html_00f0b275b162776229c5149f7ba436ca);
+            
+        
+
+        marker_7304e2d73b31e03cec5458bb5ca4e2b8.bindPopup(popup_84ea352853a3af6119caf3048c51bbd0)
+        ;
+
+        
+    
+    
+            marker_7304e2d73b31e03cec5458bb5ca4e2b8.bindTooltip(
+                `<div>
+                     Valiyavila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d17ce0d827a5ee6539965aebcc575320 = L.marker(
+                [8.4670099, 76.9473491],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6e2c3c10991fd9f99c1bb8de28ca5ddc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e159d18898f8af6931b6ea60b2c43c7 = $(`<div id="html_9e159d18898f8af6931b6ea60b2c43c7" style="width: 100.0%; height: 100.0%;"><b>Kamaleswaram</b><br>Passenger count: 36920</div>`)[0];
+                popup_6e2c3c10991fd9f99c1bb8de28ca5ddc.setContent(html_9e159d18898f8af6931b6ea60b2c43c7);
+            
+        
+
+        marker_d17ce0d827a5ee6539965aebcc575320.bindPopup(popup_6e2c3c10991fd9f99c1bb8de28ca5ddc)
+        ;
+
+        
+    
+    
+            marker_d17ce0d827a5ee6539965aebcc575320.bindTooltip(
+                `<div>
+                     Kamaleswaram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dc7bc7f1e50b219062e810414400fbab = L.marker(
+                [8.5369849, 76.9665122],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_d20b05ae4f1f0bb77aec75139ae105d4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ace9f8e3e32fec0aac6d0b2a933692dc = $(`<div id="html_ace9f8e3e32fec0aac6d0b2a933692dc" style="width: 100.0%; height: 100.0%;"><b>Peroorkada Junction</b><br>Passenger count: 33570</div>`)[0];
+                popup_d20b05ae4f1f0bb77aec75139ae105d4.setContent(html_ace9f8e3e32fec0aac6d0b2a933692dc);
+            
+        
+
+        marker_dc7bc7f1e50b219062e810414400fbab.bindPopup(popup_d20b05ae4f1f0bb77aec75139ae105d4)
+        ;
+
+        
+    
+    
+            marker_dc7bc7f1e50b219062e810414400fbab.bindTooltip(
+                `<div>
+                     Peroorkada Junction
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5712b05e5f4b4dbd336ca2a7a6f08957 = L.marker(
+                [8.4966894, 76.9482789],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_91be2487e46f94bcf0704d187f8e801a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b7ffdf97d61c240a45917948cdc9f8a2 = $(`<div id="html_b7ffdf97d61c240a45917948cdc9f8a2" style="width: 100.0%; height: 100.0%;"><b>Statue Bsnl</b><br>Passenger count: 33100</div>`)[0];
+                popup_91be2487e46f94bcf0704d187f8e801a.setContent(html_b7ffdf97d61c240a45917948cdc9f8a2);
+            
+        
+
+        marker_5712b05e5f4b4dbd336ca2a7a6f08957.bindPopup(popup_91be2487e46f94bcf0704d187f8e801a)
+        ;
+
+        
+    
+    
+            marker_5712b05e5f4b4dbd336ca2a7a6f08957.bindTooltip(
+                `<div>
+                     Statue Bsnl
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0efbaa2a24215e1b550db494b447e4ce = L.marker(
+                [10.3248518, 76.20584853737324],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_00b564ba149e152c041d948475ef4ea3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3933fb91a56ed52f5c44d1a4e1c2a7d6 = $(`<div id="html_3933fb91a56ed52f5c44d1a4e1c2a7d6" style="width: 100.0%; height: 100.0%;"><b>Sn Nagar</b><br>Passenger count: 32211</div>`)[0];
+                popup_00b564ba149e152c041d948475ef4ea3.setContent(html_3933fb91a56ed52f5c44d1a4e1c2a7d6);
+            
+        
+
+        marker_0efbaa2a24215e1b550db494b447e4ce.bindPopup(popup_00b564ba149e152c041d948475ef4ea3)
+        ;
+
+        
+    
+    
+            marker_0efbaa2a24215e1b550db494b447e4ce.bindTooltip(
+                `<div>
+                     Sn Nagar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f37bf6e078792caf1156c049d4934c33 = L.marker(
+                [8.6365921, 76.9382323],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_024c0e99bbe30ad678cbe4eb94baf99b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_be9e1857317262c3addcaa8d1362b047 = $(`<div id="html_be9e1857317262c3addcaa8d1362b047" style="width: 100.0%; height: 100.0%;"><b>Vembayam</b><br>Passenger count: 31219</div>`)[0];
+                popup_024c0e99bbe30ad678cbe4eb94baf99b.setContent(html_be9e1857317262c3addcaa8d1362b047);
+            
+        
+
+        marker_f37bf6e078792caf1156c049d4934c33.bindPopup(popup_024c0e99bbe30ad678cbe4eb94baf99b)
+        ;
+
+        
+    
+    
+            marker_f37bf6e078792caf1156c049d4934c33.bindTooltip(
+                `<div>
+                     Vembayam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_87fb36fd16b0ecc41158160807d73de9 = L.marker(
+                [8.3974066, 77.0880245],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6ea150b0b5761fd5ebf98cf8f40e29fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_63492fd60244307ffa6ea6c30b483cee = $(`<div id="html_63492fd60244307ffa6ea6c30b483cee" style="width: 100.0%; height: 100.0%;"><b>Neyyattinkara Bus Station</b><br>Passenger count: 31186</div>`)[0];
+                popup_6ea150b0b5761fd5ebf98cf8f40e29fb.setContent(html_63492fd60244307ffa6ea6c30b483cee);
+            
+        
+
+        marker_87fb36fd16b0ecc41158160807d73de9.bindPopup(popup_6ea150b0b5761fd5ebf98cf8f40e29fb)
+        ;
+
+        
+    
+    
+            marker_87fb36fd16b0ecc41158160807d73de9.bindTooltip(
+                `<div>
+                     Neyyattinkara Bus Station
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_231702473cf0718fd27c8d676296f7f5 = L.marker(
+                [8.5129415, 76.9780878],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_ea1c884308b07babfbe342466ea61d28 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e98e89873bc5eca9a68c8116da910f83 = $(`<div id="html_e98e89873bc5eca9a68c8116da910f83" style="width: 100.0%; height: 100.0%;"><b>Maruthankuzhi</b><br>Passenger count: 30444</div>`)[0];
+                popup_ea1c884308b07babfbe342466ea61d28.setContent(html_e98e89873bc5eca9a68c8116da910f83);
+            
+        
+
+        marker_231702473cf0718fd27c8d676296f7f5.bindPopup(popup_ea1c884308b07babfbe342466ea61d28)
+        ;
+
+        
+    
+    
+            marker_231702473cf0718fd27c8d676296f7f5.bindTooltip(
+                `<div>
+                     Maruthankuzhi
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_666d7ef18cfe628a025666170ad8b17d = L.marker(
+                [8.4307211, 76.9704247],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_82e59b2a21aa868942124c7999752a86 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aded3b46c75ddd216c6743ae3b407d3e = $(`<div id="html_aded3b46c75ddd216c6743ae3b407d3e" style="width: 100.0%; height: 100.0%;"><b>Vandithadam</b><br>Passenger count: 28647</div>`)[0];
+                popup_82e59b2a21aa868942124c7999752a86.setContent(html_aded3b46c75ddd216c6743ae3b407d3e);
+            
+        
+
+        marker_666d7ef18cfe628a025666170ad8b17d.bindPopup(popup_82e59b2a21aa868942124c7999752a86)
+        ;
+
+        
+    
+    
+            marker_666d7ef18cfe628a025666170ad8b17d.bindTooltip(
+                `<div>
+                     Vandithadam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_24c5648efd2df1f88482451211b04588 = L.marker(
+                [8.90377505, 76.77631078061992],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_ecfd9edf055a76c26da2cf851054cbc1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e5af72c66446965c07a1da24ed44a5c5 = $(`<div id="html_e5af72c66446965c07a1da24ed44a5c5" style="width: 100.0%; height: 100.0%;"><b>Kanjirampara</b><br>Passenger count: 28052</div>`)[0];
+                popup_ecfd9edf055a76c26da2cf851054cbc1.setContent(html_e5af72c66446965c07a1da24ed44a5c5);
+            
+        
+
+        marker_24c5648efd2df1f88482451211b04588.bindPopup(popup_ecfd9edf055a76c26da2cf851054cbc1)
+        ;
+
+        
+    
+    
+            marker_24c5648efd2df1f88482451211b04588.bindTooltip(
+                `<div>
+                     Kanjirampara
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f53ad4c1d680a751a98a80b2bd52ae7a = L.marker(
+                [8.5050876, 76.9515245],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_4357139734bb64f3605acdff4eaaa6bd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c0a105f6ae69a366d5c10eb1ccb66711 = $(`<div id="html_c0a105f6ae69a366d5c10eb1ccb66711" style="width: 100.0%; height: 100.0%;"><b>Palayam Fine Arts College</b><br>Passenger count: 27991</div>`)[0];
+                popup_4357139734bb64f3605acdff4eaaa6bd.setContent(html_c0a105f6ae69a366d5c10eb1ccb66711);
+            
+        
+
+        marker_f53ad4c1d680a751a98a80b2bd52ae7a.bindPopup(popup_4357139734bb64f3605acdff4eaaa6bd)
+        ;
+
+        
+    
+    
+            marker_f53ad4c1d680a751a98a80b2bd52ae7a.bindTooltip(
+                `<div>
+                     Palayam Fine Arts College
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ef590eb7a22cd08f7813de4ccbcb049c = L.marker(
+                [8.5425158, 76.9416851],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_9add400234160c5a9db36eced0930eef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8e2807fa1493655f10b3163b28aeb337 = $(`<div id="html_8e2807fa1493655f10b3163b28aeb337" style="width: 100.0%; height: 100.0%;"><b>Nalanchira Main Gate</b><br>Passenger count: 27826</div>`)[0];
+                popup_9add400234160c5a9db36eced0930eef.setContent(html_8e2807fa1493655f10b3163b28aeb337);
+            
+        
+
+        marker_ef590eb7a22cd08f7813de4ccbcb049c.bindPopup(popup_9add400234160c5a9db36eced0930eef)
+        ;
+
+        
+    
+    
+            marker_ef590eb7a22cd08f7813de4ccbcb049c.bindTooltip(
+                `<div>
+                     Nalanchira Main Gate
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_70e6bcbc11e9dce06b3b79dd7a909ab1 = L.marker(
+                [8.5146047, 76.9278145],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_d5b937c75c5790676b9bcad6a1981f62 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b486fb7407fc4d060147d10c43bf325 = $(`<div id="html_9b486fb7407fc4d060147d10c43bf325" style="width: 100.0%; height: 100.0%;"><b>Kumarapuram</b><br>Passenger count: 27461</div>`)[0];
+                popup_d5b937c75c5790676b9bcad6a1981f62.setContent(html_9b486fb7407fc4d060147d10c43bf325);
+            
+        
+
+        marker_70e6bcbc11e9dce06b3b79dd7a909ab1.bindPopup(popup_d5b937c75c5790676b9bcad6a1981f62)
+        ;
+
+        
+    
+    
+            marker_70e6bcbc11e9dce06b3b79dd7a909ab1.bindTooltip(
+                `<div>
+                     Kumarapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_85b68f57a10f9e2d8758d0cbdc838ec4 = L.marker(
+                [8.5222606, 76.9605163],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6e16a67a824ee93a13303ac58bb5f34e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dc99d75a55a623155446ea5a9e75fd0f = $(`<div id="html_dc99d75a55a623155446ea5a9e75fd0f" style="width: 100.0%; height: 100.0%;"><b>Kowdiar</b><br>Passenger count: 26923</div>`)[0];
+                popup_6e16a67a824ee93a13303ac58bb5f34e.setContent(html_dc99d75a55a623155446ea5a9e75fd0f);
+            
+        
+
+        marker_85b68f57a10f9e2d8758d0cbdc838ec4.bindPopup(popup_6e16a67a824ee93a13303ac58bb5f34e)
+        ;
+
+        
+    
+    
+            marker_85b68f57a10f9e2d8758d0cbdc838ec4.bindTooltip(
+                `<div>
+                     Kowdiar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cb295f23a32e036262e3a1b12f463774 = L.marker(
+                [8.4879699, 76.95006],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_ef4b6302b0ab11bde4c51ec55353909d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_22969519b8f09d4f29f06f1b733794c9 = $(`<div id="html_22969519b8f09d4f29f06f1b733794c9" style="width: 100.0%; height: 100.0%;"><b>Thampanoor Ktdc Chaithram</b><br>Passenger count: 25292</div>`)[0];
+                popup_ef4b6302b0ab11bde4c51ec55353909d.setContent(html_22969519b8f09d4f29f06f1b733794c9);
+            
+        
+
+        marker_cb295f23a32e036262e3a1b12f463774.bindPopup(popup_ef4b6302b0ab11bde4c51ec55353909d)
+        ;
+
+        
+    
+    
+            marker_cb295f23a32e036262e3a1b12f463774.bindTooltip(
+                `<div>
+                     Thampanoor Ktdc Chaithram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_82ea5e73fa7c40b6eb9acf5618041a8a = L.marker(
+                [8.5823953, 76.9030474],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_525483f2ff26c7325ce0846acae2594b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_851c7e424efaefa581935e335b30b83e = $(`<div id="html_851c7e424efaefa581935e335b30b83e" style="width: 100.0%; height: 100.0%;"><b>Chenkottukonam</b><br>Passenger count: 23850</div>`)[0];
+                popup_525483f2ff26c7325ce0846acae2594b.setContent(html_851c7e424efaefa581935e335b30b83e);
+            
+        
+
+        marker_82ea5e73fa7c40b6eb9acf5618041a8a.bindPopup(popup_525483f2ff26c7325ce0846acae2594b)
+        ;
+
+        
+    
+    
+            marker_82ea5e73fa7c40b6eb9acf5618041a8a.bindTooltip(
+                `<div>
+                     Chenkottukonam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b238deffe4700502f15e51390d39da94 = L.marker(
+                [8.4247979, 77.0457835],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6851a87ab9c78f8382fd4271cdbeb97d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bed4cc538ff7fb8d3c8d530bcb7b6aa6 = $(`<div id="html_bed4cc538ff7fb8d3c8d530bcb7b6aa6" style="width: 100.0%; height: 100.0%;"><b>Balaramapuram</b><br>Passenger count: 23821</div>`)[0];
+                popup_6851a87ab9c78f8382fd4271cdbeb97d.setContent(html_bed4cc538ff7fb8d3c8d530bcb7b6aa6);
+            
+        
+
+        marker_b238deffe4700502f15e51390d39da94.bindPopup(popup_6851a87ab9c78f8382fd4271cdbeb97d)
+        ;
+
+        
+    
+    
+            marker_b238deffe4700502f15e51390d39da94.bindTooltip(
+                `<div>
+                     Balaramapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c9f433d248a6eff144cd4ac66d3eaa24 = L.marker(
+                [8.694916599999999, 76.81859943793987],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_87543c56fc55dccf5eea0a6cb9d54302 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6e5559b230344f6c4cecfc16ea9196b8 = $(`<div id="html_6e5559b230344f6c4cecfc16ea9196b8" style="width: 100.0%; height: 100.0%;"><b>Chirayinkeezhu Bus Stand</b><br>Passenger count: 23806</div>`)[0];
+                popup_87543c56fc55dccf5eea0a6cb9d54302.setContent(html_6e5559b230344f6c4cecfc16ea9196b8);
+            
+        
+
+        marker_c9f433d248a6eff144cd4ac66d3eaa24.bindPopup(popup_87543c56fc55dccf5eea0a6cb9d54302)
+        ;
+
+        
+    
+    
+            marker_c9f433d248a6eff144cd4ac66d3eaa24.bindTooltip(
+                `<div>
+                     Chirayinkeezhu Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_200ed5fe47987dce39c4a762d208bbd9 = L.marker(
+                [8.5606753, 76.9433771],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6b5532a3b98fd2167c175ed1bfb5e524 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_184d44a54d7dd06f8c6dda6222d12210 = $(`<div id="html_184d44a54d7dd06f8c6dda6222d12210" style="width: 100.0%; height: 100.0%;"><b>Mannanthala</b><br>Passenger count: 23744</div>`)[0];
+                popup_6b5532a3b98fd2167c175ed1bfb5e524.setContent(html_184d44a54d7dd06f8c6dda6222d12210);
+            
+        
+
+        marker_200ed5fe47987dce39c4a762d208bbd9.bindPopup(popup_6b5532a3b98fd2167c175ed1bfb5e524)
+        ;
+
+        
+    
+    
+            marker_200ed5fe47987dce39c4a762d208bbd9.bindTooltip(
+                `<div>
+                     Mannanthala
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0bac6441b03f5ddb72c2603a4e099e13 = L.marker(
+                [8.58342418403096, 76.90238010555564],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_1c1046dec95213e5d50679eb1150e5f1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ee15d561e5dc8d4f19542912df677bfa = $(`<div id="html_ee15d561e5dc8d4f19542912df677bfa" style="width: 100.0%; height: 100.0%;"><b>Chempazhanthy</b><br>Passenger count: 23695</div>`)[0];
+                popup_1c1046dec95213e5d50679eb1150e5f1.setContent(html_ee15d561e5dc8d4f19542912df677bfa);
+            
+        
+
+        marker_0bac6441b03f5ddb72c2603a4e099e13.bindPopup(popup_1c1046dec95213e5d50679eb1150e5f1)
+        ;
+
+        
+    
+    
+            marker_0bac6441b03f5ddb72c2603a4e099e13.bindTooltip(
+                `<div>
+                     Chempazhanthy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3a30b005153afe5ae67d2d4110c74b8c = L.marker(
+                [8.490181, 76.9584493],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_0567fddab7fe53ca58e945e9ad005630 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_27b8a6e65e49604872abb7f1b095e60d = $(`<div id="html_27b8a6e65e49604872abb7f1b095e60d" style="width: 100.0%; height: 100.0%;"><b>Mettukada</b><br>Passenger count: 22905</div>`)[0];
+                popup_0567fddab7fe53ca58e945e9ad005630.setContent(html_27b8a6e65e49604872abb7f1b095e60d);
+            
+        
+
+        marker_3a30b005153afe5ae67d2d4110c74b8c.bindPopup(popup_0567fddab7fe53ca58e945e9ad005630)
+        ;
+
+        
+    
+    
+            marker_3a30b005153afe5ae67d2d4110c74b8c.bindTooltip(
+                `<div>
+                     Mettukada
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ce34fea336e22b4dcfe0e7fb34f47ac3 = L.marker(
+                [8.5542509, 77.18554451838283],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_97272e9f4a589fe8d1d318f298cd60df = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4deec9472f673b282862aad5b13d2b93 = $(`<div id="html_4deec9472f673b282862aad5b13d2b93" style="width: 100.0%; height: 100.0%;"><b>Kattakkada</b><br>Passenger count: 22142</div>`)[0];
+                popup_97272e9f4a589fe8d1d318f298cd60df.setContent(html_4deec9472f673b282862aad5b13d2b93);
+            
+        
+
+        marker_ce34fea336e22b4dcfe0e7fb34f47ac3.bindPopup(popup_97272e9f4a589fe8d1d318f298cd60df)
+        ;
+
+        
+    
+    
+            marker_ce34fea336e22b4dcfe0e7fb34f47ac3.bindTooltip(
+                `<div>
+                     Kattakkada
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9956224f05aefc7784671f47f83121dc = L.marker(
+                [8.4702552, 76.9818151],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_2d72f1009a712c0d1cecd558c25e8294 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa5b35d48209d4eeb183e10d53d149e8 = $(`<div id="html_fa5b35d48209d4eeb183e10d53d149e8" style="width: 100.0%; height: 100.0%;"><b>Pappanamcode</b><br>Passenger count: 22118</div>`)[0];
+                popup_2d72f1009a712c0d1cecd558c25e8294.setContent(html_fa5b35d48209d4eeb183e10d53d149e8);
+            
+        
+
+        marker_9956224f05aefc7784671f47f83121dc.bindPopup(popup_2d72f1009a712c0d1cecd558c25e8294)
+        ;
+
+        
+    
+    
+            marker_9956224f05aefc7784671f47f83121dc.bindTooltip(
+                `<div>
+                     Pappanamcode
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2dc180300437d890b656a1e55478193d = L.marker(
+                [8.5372683, 76.8801999],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_8a512f6265154d25c94b720a33a2575b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a7d349e4332b471bb77ee84b3e1c99e9 = $(`<div id="html_a7d349e4332b471bb77ee84b3e1c99e9" style="width: 100.0%; height: 100.0%;"><b>Kulathoor</b><br>Passenger count: 21813</div>`)[0];
+                popup_8a512f6265154d25c94b720a33a2575b.setContent(html_a7d349e4332b471bb77ee84b3e1c99e9);
+            
+        
+
+        marker_2dc180300437d890b656a1e55478193d.bindPopup(popup_8a512f6265154d25c94b720a33a2575b)
+        ;
+
+        
+    
+    
+            marker_2dc180300437d890b656a1e55478193d.bindTooltip(
+                `<div>
+                     Kulathoor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7c07a4507404945414bfd6ce83213c67 = L.marker(
+                [10.8939429, 79.4292906],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_487b865a85bbbc18109496d73b174489 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a10b51202bf3cf5e0090fd974e12fc64 = $(`<div id="html_a10b51202bf3cf5e0090fd974e12fc64" style="width: 100.0%; height: 100.0%;"><b>Mangalapuram</b><br>Passenger count: 20888</div>`)[0];
+                popup_487b865a85bbbc18109496d73b174489.setContent(html_a10b51202bf3cf5e0090fd974e12fc64);
+            
+        
+
+        marker_7c07a4507404945414bfd6ce83213c67.bindPopup(popup_487b865a85bbbc18109496d73b174489)
+        ;
+
+        
+    
+    
+            marker_7c07a4507404945414bfd6ce83213c67.bindTooltip(
+                `<div>
+                     Mangalapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d5bb9f930688a5e2d6ba2bb7ebe7bbb = L.marker(
+                [8.616553249999999, 76.82883452858036],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6ccc2d366b21e06e2a3c53504a955d0c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_320350dbce73aa0bfad018ded7eddd78 = $(`<div id="html_320350dbce73aa0bfad018ded7eddd78" style="width: 100.0%; height: 100.0%;"><b>Murukkumpuzha</b><br>Passenger count: 20722</div>`)[0];
+                popup_6ccc2d366b21e06e2a3c53504a955d0c.setContent(html_320350dbce73aa0bfad018ded7eddd78);
+            
+        
+
+        marker_7d5bb9f930688a5e2d6ba2bb7ebe7bbb.bindPopup(popup_6ccc2d366b21e06e2a3c53504a955d0c)
+        ;
+
+        
+    
+    
+            marker_7d5bb9f930688a5e2d6ba2bb7ebe7bbb.bindTooltip(
+                `<div>
+                     Murukkumpuzha
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a6dbf5596ec234eae981ed7955d1f852 = L.marker(
+                [8.55637265, 76.90439332488944],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_d27dc94221ddc6a93f4c7c00470b894e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a305051e2c50ad402572d4dc3ded789a = $(`<div id="html_a305051e2c50ad402572d4dc3ded789a" style="width: 100.0%; height: 100.0%;"><b>Pangappara</b><br>Passenger count: 20678</div>`)[0];
+                popup_d27dc94221ddc6a93f4c7c00470b894e.setContent(html_a305051e2c50ad402572d4dc3ded789a);
+            
+        
+
+        marker_a6dbf5596ec234eae981ed7955d1f852.bindPopup(popup_d27dc94221ddc6a93f4c7c00470b894e)
+        ;
+
+        
+    
+    
+            marker_a6dbf5596ec234eae981ed7955d1f852.bindTooltip(
+                `<div>
+                     Pangappara
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_44c3d4c7e788f57ad4970d5b7b83aaf7 = L.marker(
+                [8.3976294, 77.08799458872875],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_c2573afe3691083616342aa37c3eae58 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1628742ad519c960331784f704e4159f = $(`<div id="html_1628742ad519c960331784f704e4159f" style="width: 100.0%; height: 100.0%;"><b>Poovar Bus Stand</b><br>Passenger count: 20607</div>`)[0];
+                popup_c2573afe3691083616342aa37c3eae58.setContent(html_1628742ad519c960331784f704e4159f);
+            
+        
+
+        marker_44c3d4c7e788f57ad4970d5b7b83aaf7.bindPopup(popup_c2573afe3691083616342aa37c3eae58)
+        ;
+
+        
+    
+    
+            marker_44c3d4c7e788f57ad4970d5b7b83aaf7.bindTooltip(
+                `<div>
+                     Poovar Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f561c9cfce0ea5cb9db3c7ecf85a6aee = L.marker(
+                [8.3964587, 77.0039878],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_54f9c4762f7fd1f3cc445454e7cfd086 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7c676ac321f221e6fc4157541dc48c7b = $(`<div id="html_7c676ac321f221e6fc4157541dc48c7b" style="width: 100.0%; height: 100.0%;"><b>Venganoor</b><br>Passenger count: 20084</div>`)[0];
+                popup_54f9c4762f7fd1f3cc445454e7cfd086.setContent(html_7c676ac321f221e6fc4157541dc48c7b);
+            
+        
+
+        marker_f561c9cfce0ea5cb9db3c7ecf85a6aee.bindPopup(popup_54f9c4762f7fd1f3cc445454e7cfd086)
+        ;
+
+        
+    
+    
+            marker_f561c9cfce0ea5cb9db3c7ecf85a6aee.bindTooltip(
+                `<div>
+                     Venganoor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e8bbdfd5c9dd7a9c08228339c86e58fa = L.marker(
+                [8.4945483, 76.9641003],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_f31935c845f5569d32b66a6c715169de = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a91ccdf0c9030e7be35af1042434c2da = $(`<div id="html_a91ccdf0c9030e7be35af1042434c2da" style="width: 100.0%; height: 100.0%;"><b>Jagathy</b><br>Passenger count: 19820</div>`)[0];
+                popup_f31935c845f5569d32b66a6c715169de.setContent(html_a91ccdf0c9030e7be35af1042434c2da);
+            
+        
+
+        marker_e8bbdfd5c9dd7a9c08228339c86e58fa.bindPopup(popup_f31935c845f5569d32b66a6c715169de)
+        ;
+
+        
+    
+    
+            marker_e8bbdfd5c9dd7a9c08228339c86e58fa.bindTooltip(
+                `<div>
+                     Jagathy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b71a16e32d2e47282b6ab706311145b7 = L.marker(
+                [8.449520849999999, 76.9487431],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_e7e1919ea7e1f564c08b7f23fdf1b8c4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_187039796ea36149eaa3bfda28f6459d = $(`<div id="html_187039796ea36149eaa3bfda28f6459d" style="width: 100.0%; height: 100.0%;"><b>Kumarichantha</b><br>Passenger count: 18598</div>`)[0];
+                popup_e7e1919ea7e1f564c08b7f23fdf1b8c4.setContent(html_187039796ea36149eaa3bfda28f6459d);
+            
+        
+
+        marker_b71a16e32d2e47282b6ab706311145b7.bindPopup(popup_e7e1919ea7e1f564c08b7f23fdf1b8c4)
+        ;
+
+        
+    
+    
+            marker_b71a16e32d2e47282b6ab706311145b7.bindTooltip(
+                `<div>
+                     Kumarichantha
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_38db41cfdb557120996f1d6ba956a123 = L.marker(
+                [9.6322151, 76.52155969122603],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_7036c844da0c4d6ca2129900ea09121c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d8b8a38c91d7ea285eefcc9bd81b47b = $(`<div id="html_3d8b8a38c91d7ea285eefcc9bd81b47b" style="width: 100.0%; height: 100.0%;"><b>Medical College Bus Stand</b><br>Passenger count: 18370</div>`)[0];
+                popup_7036c844da0c4d6ca2129900ea09121c.setContent(html_3d8b8a38c91d7ea285eefcc9bd81b47b);
+            
+        
+
+        marker_38db41cfdb557120996f1d6ba956a123.bindPopup(popup_7036c844da0c4d6ca2129900ea09121c)
+        ;
+
+        
+    
+    
+            marker_38db41cfdb557120996f1d6ba956a123.bindTooltip(
+                `<div>
+                     Medical College Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fdabf1b9bec8ebb58a4f721f1d12087a = L.marker(
+                [8.5209794, 76.9226146],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_c4d073b1fae5f57aea9d20caa6e3552b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8898bd275f2b6afd11934b331e5c4ee2 = $(`<div id="html_8898bd275f2b6afd11934b331e5c4ee2" style="width: 100.0%; height: 100.0%;"><b>Medical College Thiruvananthapuram</b><br>Passenger count: 17949</div>`)[0];
+                popup_c4d073b1fae5f57aea9d20caa6e3552b.setContent(html_8898bd275f2b6afd11934b331e5c4ee2);
+            
+        
+
+        marker_fdabf1b9bec8ebb58a4f721f1d12087a.bindPopup(popup_c4d073b1fae5f57aea9d20caa6e3552b)
+        ;
+
+        
+    
+    
+            marker_fdabf1b9bec8ebb58a4f721f1d12087a.bindTooltip(
+                `<div>
+                     Medical College Thiruvananthapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_82c66b234adcde330a60595b5d01e8fb = L.marker(
+                [8.4985414, 76.9357106],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_f5b3a92c91049c735d2909c9f3614234 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa0068744d3c31ead3b877efc42c9cf2 = $(`<div id="html_fa0068744d3c31ead3b877efc42c9cf2" style="width: 100.0%; height: 100.0%;"><b>Pattoor</b><br>Passenger count: 17752</div>`)[0];
+                popup_f5b3a92c91049c735d2909c9f3614234.setContent(html_fa0068744d3c31ead3b877efc42c9cf2);
+            
+        
+
+        marker_82c66b234adcde330a60595b5d01e8fb.bindPopup(popup_f5b3a92c91049c735d2909c9f3614234)
+        ;
+
+        
+    
+    
+            marker_82c66b234adcde330a60595b5d01e8fb.bindTooltip(
+                `<div>
+                     Pattoor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7e29e697c6822f4b2fbee34bb835de06 = L.marker(
+                [8.56002775, 76.88834373124564],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_21eb374d32a9e559f0e342e4a07b2a8e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f92ad78048d23329edcc435aa0769139 = $(`<div id="html_f92ad78048d23329edcc435aa0769139" style="width: 100.0%; height: 100.0%;"><b>Karyavattom University</b><br>Passenger count: 17456</div>`)[0];
+                popup_21eb374d32a9e559f0e342e4a07b2a8e.setContent(html_f92ad78048d23329edcc435aa0769139);
+            
+        
+
+        marker_7e29e697c6822f4b2fbee34bb835de06.bindPopup(popup_21eb374d32a9e559f0e342e4a07b2a8e)
+        ;
+
+        
+    
+    
+            marker_7e29e697c6822f4b2fbee34bb835de06.bindTooltip(
+                `<div>
+                     Karyavattom University
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_02b2c2fc3a02d797328ffe0a33d79f2c = L.marker(
+                [8.5925816, 76.9529529],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_26ede9bf9a34afd89542a15221e5fa4b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6ec358cbb868bbd7aa71e7c948674c49 = $(`<div id="html_6ec358cbb868bbd7aa71e7c948674c49" style="width: 100.0%; height: 100.0%;"><b>Vattappara</b><br>Passenger count: 17455</div>`)[0];
+                popup_26ede9bf9a34afd89542a15221e5fa4b.setContent(html_6ec358cbb868bbd7aa71e7c948674c49);
+            
+        
+
+        marker_02b2c2fc3a02d797328ffe0a33d79f2c.bindPopup(popup_26ede9bf9a34afd89542a15221e5fa4b)
+        ;
+
+        
+    
+    
+            marker_02b2c2fc3a02d797328ffe0a33d79f2c.bindTooltip(
+                `<div>
+                     Vattappara
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3a011a132fb8c2d7527ff3bcb45f892e = L.marker(
+                [8.4435903, 76.9440132],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_1cc23f00b035741a8159125c62a5674e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d4c189d821c40414a97fbfa8e32f7448 = $(`<div id="html_d4c189d821c40414a97fbfa8e32f7448" style="width: 100.0%; height: 100.0%;"><b>Poonthura Junction</b><br>Passenger count: 17178</div>`)[0];
+                popup_1cc23f00b035741a8159125c62a5674e.setContent(html_d4c189d821c40414a97fbfa8e32f7448);
+            
+        
+
+        marker_3a011a132fb8c2d7527ff3bcb45f892e.bindPopup(popup_1cc23f00b035741a8159125c62a5674e)
+        ;
+
+        
+    
+    
+            marker_3a011a132fb8c2d7527ff3bcb45f892e.bindTooltip(
+                `<div>
+                     Poonthura Junction
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aaf06a0d3b407784bcaa36523e56b104 = L.marker(
+                [8.5093458, 76.9491531],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_3ddb897374f61cc8626ab1d1df5fc7b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_54b410001fd8fcb0bc579b7b2438dbb5 = $(`<div id="html_54b410001fd8fcb0bc579b7b2438dbb5" style="width: 100.0%; height: 100.0%;"><b>Pmg</b><br>Passenger count: 16915</div>`)[0];
+                popup_3ddb897374f61cc8626ab1d1df5fc7b5.setContent(html_54b410001fd8fcb0bc579b7b2438dbb5);
+            
+        
+
+        marker_aaf06a0d3b407784bcaa36523e56b104.bindPopup(popup_3ddb897374f61cc8626ab1d1df5fc7b5)
+        ;
+
+        
+    
+    
+            marker_aaf06a0d3b407784bcaa36523e56b104.bindTooltip(
+                `<div>
+                     Pmg
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0569e539dec848371277a9b75dfe286d = L.marker(
+                [8.6102140856223, 76.8963555330897],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_f94b9552204490f9bb96bc1971532981 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_660252968b57e86534ad096880f48362 = $(`<div id="html_660252968b57e86534ad096880f48362" style="width: 100.0%; height: 100.0%;"><b>Kattayikonam</b><br>Passenger count: 16793</div>`)[0];
+                popup_f94b9552204490f9bb96bc1971532981.setContent(html_660252968b57e86534ad096880f48362);
+            
+        
+
+        marker_0569e539dec848371277a9b75dfe286d.bindPopup(popup_f94b9552204490f9bb96bc1971532981)
+        ;
+
+        
+    
+    
+            marker_0569e539dec848371277a9b75dfe286d.bindTooltip(
+                `<div>
+                     Kattayikonam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f30314faefb975c389b753134e9ce60d = L.marker(
+                [8.4871867, 76.952759],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_9ca1662f3c7445dd8eb19d740a55dd53 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c918a57718bf1781b56467082d77c38 = $(`<div id="html_3c918a57718bf1781b56467082d77c38" style="width: 100.0%; height: 100.0%;"><b>Thampanoor Railway Station</b><br>Passenger count: 16622</div>`)[0];
+                popup_9ca1662f3c7445dd8eb19d740a55dd53.setContent(html_3c918a57718bf1781b56467082d77c38);
+            
+        
+
+        marker_f30314faefb975c389b753134e9ce60d.bindPopup(popup_9ca1662f3c7445dd8eb19d740a55dd53)
+        ;
+
+        
+    
+    
+            marker_f30314faefb975c389b753134e9ce60d.bindTooltip(
+                `<div>
+                     Thampanoor Railway Station
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1821030c4d5e228639ffe0afa3c894c3 = L.marker(
+                [8.25877545, 77.20970959157259],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_440038340a3dabef2b264582090f55cc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8677338c97bb5e7bcfcfc47320486f77 = $(`<div id="html_8677338c97bb5e7bcfcfc47320486f77" style="width: 100.0%; height: 100.0%;"><b>Kiliyoor</b><br>Passenger count: 16557</div>`)[0];
+                popup_440038340a3dabef2b264582090f55cc.setContent(html_8677338c97bb5e7bcfcfc47320486f77);
+            
+        
+
+        marker_1821030c4d5e228639ffe0afa3c894c3.bindPopup(popup_440038340a3dabef2b264582090f55cc)
+        ;
+
+        
+    
+    
+            marker_1821030c4d5e228639ffe0afa3c894c3.bindTooltip(
+                `<div>
+                     Kiliyoor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6cfa71e38fd31204a06f5d4c6ef3da3f = L.marker(
+                [8.5420235, 76.9888936],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_240cf7aa2bd957a42cc827509301c15b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2a5603d4e52a9ba4e23526ea80bdd8de = $(`<div id="html_2a5603d4e52a9ba4e23526ea80bdd8de" style="width: 100.0%; height: 100.0%;"><b>Nettayam</b><br>Passenger count: 16341</div>`)[0];
+                popup_240cf7aa2bd957a42cc827509301c15b.setContent(html_2a5603d4e52a9ba4e23526ea80bdd8de);
+            
+        
+
+        marker_6cfa71e38fd31204a06f5d4c6ef3da3f.bindPopup(popup_240cf7aa2bd957a42cc827509301c15b)
+        ;
+
+        
+    
+    
+            marker_6cfa71e38fd31204a06f5d4c6ef3da3f.bindTooltip(
+                `<div>
+                     Nettayam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_41dd92db5f1a51b6f6a754cdaf3c646c = L.marker(
+                [8.3950997, 76.9729934],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_02adac1cb7127ef7a7d9650599533e50 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_527173f77c13ebce65452274003b6b0f = $(`<div id="html_527173f77c13ebce65452274003b6b0f" style="width: 100.0%; height: 100.0%;"><b>Kovalam Beach</b><br>Passenger count: 15459</div>`)[0];
+                popup_02adac1cb7127ef7a7d9650599533e50.setContent(html_527173f77c13ebce65452274003b6b0f);
+            
+        
+
+        marker_41dd92db5f1a51b6f6a754cdaf3c646c.bindPopup(popup_02adac1cb7127ef7a7d9650599533e50)
+        ;
+
+        
+    
+    
+            marker_41dd92db5f1a51b6f6a754cdaf3c646c.bindTooltip(
+                `<div>
+                     Kovalam Beach
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f1be099d9b02ac34306bb1fa9701515e = L.marker(
+                [8.5206614, 76.9245217],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_d92e8de30d2517d507a1cdf2900b6f61 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f8f214253969cdd5643cd765aebcc8db = $(`<div id="html_f8f214253969cdd5643cd765aebcc8db" style="width: 100.0%; height: 100.0%;"><b>Rcc Thiruvananthapuram</b><br>Passenger count: 14570</div>`)[0];
+                popup_d92e8de30d2517d507a1cdf2900b6f61.setContent(html_f8f214253969cdd5643cd765aebcc8db);
+            
+        
+
+        marker_f1be099d9b02ac34306bb1fa9701515e.bindPopup(popup_d92e8de30d2517d507a1cdf2900b6f61)
+        ;
+
+        
+    
+    
+            marker_f1be099d9b02ac34306bb1fa9701515e.bindTooltip(
+                `<div>
+                     Rcc Thiruvananthapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ec0983c692f3274d5cb64f419cf38b5e = L.marker(
+                [8.5330889, 77.0008484],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_7892530008cefe0af896918abb4f1711 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ba3a7cc88efe64d3d55850358d190ab9 = $(`<div id="html_ba3a7cc88efe64d3d55850358d190ab9" style="width: 100.0%; height: 100.0%;"><b>Vayalikada</b><br>Passenger count: 14286</div>`)[0];
+                popup_7892530008cefe0af896918abb4f1711.setContent(html_ba3a7cc88efe64d3d55850358d190ab9);
+            
+        
+
+        marker_ec0983c692f3274d5cb64f419cf38b5e.bindPopup(popup_7892530008cefe0af896918abb4f1711)
+        ;
+
+        
+    
+    
+            marker_ec0983c692f3274d5cb64f419cf38b5e.bindTooltip(
+                `<div>
+                     Vayalikada
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9f7469ae5cdc8a398d72f068ea2ed544 = L.marker(
+                [8.752773930991108, 76.94014568599381],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_41b3ee4e6dc1bc6b86e857f060ea71b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d717fd67624ce4b4d76c6d1464b840b7 = $(`<div id="html_d717fd67624ce4b4d76c6d1464b840b7" style="width: 100.0%; height: 100.0%;"><b>Kallara Bus Stand</b><br>Passenger count: 14134</div>`)[0];
+                popup_41b3ee4e6dc1bc6b86e857f060ea71b3.setContent(html_d717fd67624ce4b4d76c6d1464b840b7);
+            
+        
+
+        marker_9f7469ae5cdc8a398d72f068ea2ed544.bindPopup(popup_41b3ee4e6dc1bc6b86e857f060ea71b3)
+        ;
+
+        
+    
+    
+            marker_9f7469ae5cdc8a398d72f068ea2ed544.bindTooltip(
+                `<div>
+                     Kallara Bus Stand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_50f70591e2bb1ad1dd6af646a176a5a1 = L.marker(
+                [8.4696192, 76.9358568],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_124a88b857edaa48fa0537a0bd167318 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7bee7e1b4a92038c293b08ba77ebde64 = $(`<div id="html_7bee7e1b4a92038c293b08ba77ebde64" style="width: 100.0%; height: 100.0%;"><b>Kallumoodu</b><br>Passenger count: 13428</div>`)[0];
+                popup_124a88b857edaa48fa0537a0bd167318.setContent(html_7bee7e1b4a92038c293b08ba77ebde64);
+            
+        
+
+        marker_50f70591e2bb1ad1dd6af646a176a5a1.bindPopup(popup_124a88b857edaa48fa0537a0bd167318)
+        ;
+
+        
+    
+    
+            marker_50f70591e2bb1ad1dd6af646a176a5a1.bindTooltip(
+                `<div>
+                     Kallumoodu
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4a494ec1962e8f4f626f74475fc30109 = L.marker(
+                [8.4538721, 77.0104923],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_e535596d6438052d84705050fa5c12dd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f70d41ecb129a264f9264411df123aa5 = $(`<div id="html_f70d41ecb129a264f9264411df123aa5" style="width: 100.0%; height: 100.0%;"><b>Nemom</b><br>Passenger count: 12685</div>`)[0];
+                popup_e535596d6438052d84705050fa5c12dd.setContent(html_f70d41ecb129a264f9264411df123aa5);
+            
+        
+
+        marker_4a494ec1962e8f4f626f74475fc30109.bindPopup(popup_e535596d6438052d84705050fa5c12dd)
+        ;
+
+        
+    
+    
+            marker_4a494ec1962e8f4f626f74475fc30109.bindTooltip(
+                `<div>
+                     Nemom
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ad40f957d8f1f7a70bd11a5fe7b7fe22 = L.marker(
+                [8.5297091, 76.9384033],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_0f2f451a44154ba5570d34bb6708d079 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_69d32cfc18265d88d9df1f09a9ad4cb2 = $(`<div id="html_69d32cfc18265d88d9df1f09a9ad4cb2" style="width: 100.0%; height: 100.0%;"><b>Kesavadasapuram</b><br>Passenger count: 12658</div>`)[0];
+                popup_0f2f451a44154ba5570d34bb6708d079.setContent(html_69d32cfc18265d88d9df1f09a9ad4cb2);
+            
+        
+
+        marker_ad40f957d8f1f7a70bd11a5fe7b7fe22.bindPopup(popup_0f2f451a44154ba5570d34bb6708d079)
+        ;
+
+        
+    
+    
+            marker_ad40f957d8f1f7a70bd11a5fe7b7fe22.bindTooltip(
+                `<div>
+                     Kesavadasapuram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d6a929d221d93ec7b2066c9dd0184d9a = L.marker(
+                [8.5024973, 76.9481],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_9727e707b9e4667c3421240852eb19a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_602ccc571162109fadb0842cf97a6df2 = $(`<div id="html_602ccc571162109fadb0842cf97a6df2" style="width: 100.0%; height: 100.0%;"><b>Kerala University</b><br>Passenger count: 12413</div>`)[0];
+                popup_9727e707b9e4667c3421240852eb19a2.setContent(html_602ccc571162109fadb0842cf97a6df2);
+            
+        
+
+        marker_d6a929d221d93ec7b2066c9dd0184d9a.bindPopup(popup_9727e707b9e4667c3421240852eb19a2)
+        ;
+
+        
+    
+    
+            marker_d6a929d221d93ec7b2066c9dd0184d9a.bindTooltip(
+                `<div>
+                     Kerala University
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0cda5cc0e447596fc87c3f904fc21b2b = L.marker(
+                [8.4945184, 76.9014215],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_99e8c989038c395e55542df7b5fcbc66 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa6e96bf49263b600ae0ad5ef9773803 = $(`<div id="html_fa6e96bf49263b600ae0ad5ef9773803" style="width: 100.0%; height: 100.0%;"><b>Vettukadu</b><br>Passenger count: 12245</div>`)[0];
+                popup_99e8c989038c395e55542df7b5fcbc66.setContent(html_fa6e96bf49263b600ae0ad5ef9773803);
+            
+        
+
+        marker_0cda5cc0e447596fc87c3f904fc21b2b.bindPopup(popup_99e8c989038c395e55542df7b5fcbc66)
+        ;
+
+        
+    
+    
+            marker_0cda5cc0e447596fc87c3f904fc21b2b.bindTooltip(
+                `<div>
+                     Vettukadu
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_85f66d849b848584e6b61014e6a5e84d = L.marker(
+                [8.4645301, 76.926924],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_cf6f987c095a750c6be09afaa68decab = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c54c3822200238fdfdee36129b669600 = $(`<div id="html_c54c3822200238fdfdee36129b669600" style="width: 100.0%; height: 100.0%;"><b>Valiyathura</b><br>Passenger count: 11828</div>`)[0];
+                popup_cf6f987c095a750c6be09afaa68decab.setContent(html_c54c3822200238fdfdee36129b669600);
+            
+        
+
+        marker_85f66d849b848584e6b61014e6a5e84d.bindPopup(popup_cf6f987c095a750c6be09afaa68decab)
+        ;
+
+        
+    
+    
+            marker_85f66d849b848584e6b61014e6a5e84d.bindTooltip(
+                `<div>
+                     Valiyathura
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5ac2dc2bea76f5fdb96611f1c4c95ed5 = L.marker(
+                [8.6966388, 76.8166527],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_7cdfe113f56033d6e8dbe1ab9a778171 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0775bbf9493636f2484d53581c5b60d2 = $(`<div id="html_0775bbf9493636f2484d53581c5b60d2" style="width: 100.0%; height: 100.0%;"><b>Perumkuzhi</b><br>Passenger count: 11372</div>`)[0];
+                popup_7cdfe113f56033d6e8dbe1ab9a778171.setContent(html_0775bbf9493636f2484d53581c5b60d2);
+            
+        
+
+        marker_5ac2dc2bea76f5fdb96611f1c4c95ed5.bindPopup(popup_7cdfe113f56033d6e8dbe1ab9a778171)
+        ;
+
+        
+    
+    
+            marker_5ac2dc2bea76f5fdb96611f1c4c95ed5.bindTooltip(
+                `<div>
+                     Perumkuzhi
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9d8a6fbeddbe2f0126fed58b3a8e47ae = L.marker(
+                [8.5187488, 76.9723291],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_6e2391eeb6cec8180011c9b7bf9d7adf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cc543ff1756eb7b6ab3bfb68e1b4ce55 = $(`<div id="html_cc543ff1756eb7b6ab3bfb68e1b4ce55" style="width: 100.0%; height: 100.0%;"><b>Paippinmoodu</b><br>Passenger count: 11314</div>`)[0];
+                popup_6e2391eeb6cec8180011c9b7bf9d7adf.setContent(html_cc543ff1756eb7b6ab3bfb68e1b4ce55);
+            
+        
+
+        marker_9d8a6fbeddbe2f0126fed58b3a8e47ae.bindPopup(popup_6e2391eeb6cec8180011c9b7bf9d7adf)
+        ;
+
+        
+    
+    
+            marker_9d8a6fbeddbe2f0126fed58b3a8e47ae.bindTooltip(
+                `<div>
+                     Paippinmoodu
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e994af694f6311ae088adda3eb64a9cc = L.marker(
+                [8.5072747, 76.9521051],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_ef446034b66494aa68c94b83862e7d8f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_85bd300235d0e58420b339aaaf0d5af7 = $(`<div id="html_85bd300235d0e58420b339aaaf0d5af7" style="width: 100.0%; height: 100.0%;"><b>Lms Corporation Office</b><br>Passenger count: 11083</div>`)[0];
+                popup_ef446034b66494aa68c94b83862e7d8f.setContent(html_85bd300235d0e58420b339aaaf0d5af7);
+            
+        
+
+        marker_e994af694f6311ae088adda3eb64a9cc.bindPopup(popup_ef446034b66494aa68c94b83862e7d8f)
+        ;
+
+        
+    
+    
+            marker_e994af694f6311ae088adda3eb64a9cc.bindTooltip(
+                `<div>
+                     Lms Corporation Office
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_456050d00a07fd73e2a25dd38f2c1518 = L.marker(
+                [8.3989014, 76.9819979],
+                {}
+            ).addTo(map_c312fbb48a681c2c963eb9c35100ae45);
+        
+    
+        var popup_33ac5c0b9282456ea47ff5945aaefaa9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_30fce7bc1043eacbc07907f502e05144 = $(`<div id="html_30fce7bc1043eacbc07907f502e05144" style="width: 100.0%; height: 100.0%;"><b>Kovalam Junction</b><br>Passenger count: 10646</div>`)[0];
+                popup_33ac5c0b9282456ea47ff5945aaefaa9.setContent(html_30fce7bc1043eacbc07907f502e05144);
+            
+        
+
+        marker_456050d00a07fd73e2a25dd38f2c1518.bindPopup(popup_33ac5c0b9282456ea47ff5945aaefaa9)
+        ;
+
+        
+    
+    
+            marker_456050d00a07fd73e2a25dd38f2c1518.bindTooltip(
+                `<div>
+                     Kovalam Junction
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
