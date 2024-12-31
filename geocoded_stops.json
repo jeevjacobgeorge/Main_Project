@@ -2194,5 +2194,21 @@
     "Kannannoor": {
         "latitude": 8.942400750000001,
         "longitude": 76.77233403658488
+    },
+    "Old Sbt": {
+        "latitude": 9.385906649999999,
+        "longitude": 76.5746386336964
+    },
+    "Kairali Junction": {
+        "latitude": 9.95466905,
+        "longitude": 76.29668194999999
+    },
+    "Kulathoor Bypass": {
+        "latitude": 8.54841525,
+        "longitude": 76.8751111993614
+    },
+    "Andoorkonam Palli": {
+        "latitude": 8.6014976,
+        "longitude": 76.8753298
     }
 }
