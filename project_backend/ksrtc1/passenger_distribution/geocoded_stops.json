@@ -3774,5 +3774,161 @@
     "Maruthoorkonam Temple": {
         "latitude": 8.3811341,
         "longitude": 77.02762735675529
+    },
+    "Thottakkad": {
+        "latitude": 9.5257753,
+        "longitude": 76.60257541565188
+    },
+    "Thengumcode": {
+        "latitude": 8.730196450000001,
+        "longitude": 76.96231842495837
+    },
+    "Velleyambalam": {
+        "latitude": 8.5119848,
+        "longitude": 76.9634614
+    },
+    "Marakkadu": {
+        "latitude": 8.651272378008501,
+        "longitude": 76.96401454399488
+    },
+    "Thampanoor/ef": {
+        "latitude": 8.4876666,
+        "longitude": 76.952434
+    },
+    "Vavode Church": {
+        "latitude": 8.5152403,
+        "longitude": 77.15250231713117
+    },
+    "Attinpuram": {
+        "latitude": 8.67207134176609,
+        "longitude": 76.99001240744252
+    },
+    "Kanchinada": {
+        "latitude": 8.742899300000001,
+        "longitude": 76.98314497632524
+    },
+    "Kanjirapally": {
+        "latitude": 9.5579726,
+        "longitude": 76.7916486
+    },
+    "Konni Market": {
+        "latitude": 9.225801821395482,
+        "longitude": 76.85163567815994
+    },
+    "Tvm": {
+        "latitude": 12.9062651,
+        "longitude": 77.5763516
+    },
+    "Aims": {
+        "latitude": 9.9673133,
+        "longitude": 76.289569
+    },
+    "Veli": {
+        "latitude": 9.912250756966062,
+        "longitude": 78.11235559714252
+    },
+    "Vlavetty": {
+        "latitude": 8.563936486082254,
+        "longitude": 77.14013088132604
+    },
+    "Therani": {
+        "latitude": 11.1042523,
+        "longitude": 78.8685107
+    },
+    "Vazhachal": {
+        "latitude": 10.2847989,
+        "longitude": 76.5691181
+    },
+    "Chengallur": {
+        "latitude": 8.49296792925003,
+        "longitude": 76.97721715817123
+    },
+    "Vytilla": {
+        "latitude": 9.9718227,
+        "longitude": 76.3178983
+    },
+    "Kottrakkari": {
+        "latitude": 8.6274472,
+        "longitude": 76.82722628062945
+    },
+    "Kottukonam": {
+        "latitude": 8.4110087,
+        "longitude": 77.1672153
+    },
+    "Kochalumoodu": {
+        "latitude": 9.2450626,
+        "longitude": 76.585146
+    },
+    "Koonanvenga": {
+        "latitude": 8.688165099999999,
+        "longitude": 76.97653344242181
+    },
+    "Devaswom Board Junction": {
+        "latitude": 8.5176201,
+        "longitude": 76.9569667
+    },
+    "Mottakavu": {
+        "latitude": 8.641866799113794,
+        "longitude": 77.00998322766051
+    },
+    "Eswara Vilasom": {
+        "latitude": 8.435080171283502,
+        "longitude": 77.02212170670747
+    },
+    "Neyyattinkara Bs": {
+        "latitude": 8.38687575,
+        "longitude": 77.11281728244606
+    },
+    "Haripad": {
+        "latitude": 9.2777001,
+        "longitude": 76.4631904
+    },
+    "Nellikuzhi": {
+        "latitude": 10.0765899,
+        "longitude": 76.5927892
+    },
+    "Lulu": {
+        "latitude": 10.540916249999999,
+        "longitude": 76.1832184577072
+    },
+    "Anakuzhy": {
+        "latitude": 9.71008285,
+        "longitude": 77.03581464450399
+    },
+    "Chempazhanthi": {
+        "latitude": 8.5680488,
+        "longitude": 76.9085274
+    },
+    "Cherukodu": {
+        "latitude": 10.6231637,
+        "longitude": 76.62997054521904
+    },
+    "Muthipara": {
+        "latitude": 8.698049900000001,
+        "longitude": 76.94548493608136
+    },
+    "Poundkadavu": {
+        "latitude": 8.527064549999999,
+        "longitude": 76.88276262294505
+    },
+    "Panchayath Well": {
+        "latitude": 11.18251175,
+        "longitude": 76.05718298980436
+    },
+    "Karakkadu": {
+        "latitude": 10.604078900000001,
+        "longitude": 76.66198519626016
+    },
+    "Pamba": {
+        "latitude": 9.47869786932112,
+        "longitude": 76.38761803075236
+    },
+    "Azhimala": {
+        "latitude": 8.35082735,
+        "longitude": 77.02224687864287
+    },
+    "Anavoor": {
+        "latitude": 8.4442321,
+        "longitude": 77.1352748
     }
 }

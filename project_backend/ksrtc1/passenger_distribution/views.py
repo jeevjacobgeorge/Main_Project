@@ -10,7 +10,7 @@ from django.http import JsonResponse
 import sys
 
 # Constants
-LIMIT_OF_TOP_BUS_STOPS = 2000
+LIMIT_OF_TOP_BUS_STOPS = 1000
 MIN_AVG_THRESHOLD = 1  # At least 31 passengers in 31 days
 SOUTH_INDIA_LAT_MIN = 8.0
 SOUTH_INDIA_LAT_MAX = 14.0
@@ -192,7 +192,7 @@ def generate_bus_stop_map(request):
 
     # Initialize a Folium map centered around an average location
     map_center = [8.4869, 76.9529]
-    m = folium.Map(location=map_center, tiles="CartoDB positron", zoom_start=13, min_zoom=8, max_zoom=18)
+    m = folium.Map(location=map_center, tiles="OpenStreetMap", zoom_start=13, min_zoom=8, max_zoom=18)
 
     # Logarithmic transformation of passenger counts for better contrast in markers
     stops_df['log_passenger_count'] = np.log1p(stops_df['passenger_count'])
@@ -240,7 +240,7 @@ def generate_bus_stop_map(request):
 
         marker = folium.Marker(
             location=[row["latitude"], row["longitude"]],
-            popup=f"<b>{row['stop_name']}</b><br>Average Passenger count: {row['passenger_count']:.2f}<br>Log Transformed: {row['log_passenger_count']:.2f}",
+            popup=f"<b>{row['stop_name']}</b><br>Average Passenger count: {row['passenger_count']:.2f}",
             tooltip=row["stop_name"],
             icon=Icon(color=color, icon="fa-users", prefix="fa"),  # Apply color dynamically
         )
