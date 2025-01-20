@@ -8,7 +8,10 @@ from geopy.geocoders import Nominatim
 from django.shortcuts import render
 from django.http import JsonResponse
 import sys
-
+import dotenv
+import requests
+from django.core.cache import cache
+dotenv.load_dotenv()
 # Constants
 LIMIT_OF_TOP_BUS_STOPS = 1000
 MIN_AVG_THRESHOLD = 1  # At least 31 passengers in 31 days
@@ -18,7 +21,7 @@ SOUTH_INDIA_LON_MIN = 76.0
 SOUTH_INDIA_LON_MAX = 80.0
 GEO_CACHE_FILE = 'passenger_distribution/geocoded_stops.json'  # Update path as needed
 FAILURE_CACHE_FILE = 'passenger_distribution/geocoding_failures.json'  # Update path as needed
-percent = 0
+
 # Set your file paths and parameters
 
 
@@ -37,6 +40,43 @@ def select_month_time(request):
         'hours': hours,
         'days': days
     })
+
+def geocode_using_gmaps(stop_name, timeout=15):
+    # Define the endpoint and parameters for the Google Maps Geocoding API
+    endpoint = "https://maps.googleapis.com/maps/api/geocode/json"
+    params = {
+        'address': stop_name,  # Address or stop name to be geocoded
+        'key': API_KEY  # API key for authentication
+    }
+
+    try:
+        # Make the GET request to the Google Maps API with a timeout
+        response = requests.get(endpoint, params=params, timeout=timeout)
+
+        # Check if the request was successful
+        if response.status_code == 200:
+            data = response.json()
+            # If the API returns results
+            if data['status'] == 'OK':
+                # Extract latitude and longitude
+                lat = data['results'][0]['geometry']['location']['lat']
+                lng = data['results'][0]['geometry']['location']['lng']
+                return lat, lng
+            else:
+                print("Geocoding error:", data['status'])
+                return None
+        else:
+            print(f"Request failed with status code {response.status_code}")
+            return None
+
+    except requests.exceptions.Timeout:
+        print(f"The request timed out after {timeout} seconds.")
+        return None
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
+
 
 def generate_bus_stop_map(request):
     print("Generating Bus Stop Map...")
@@ -148,11 +188,12 @@ def generate_bus_stop_map(request):
     success_count = 0
     failure_count = 0
     failures = []
-
+    total_bus_stops = len(bus_stops_data)
+    cache.set('geocoding_progress', 0)
     # Geocode each bus stop
     for i, stop in enumerate(bus_stops_data):
         stop_name = stop["stop_name"]
-
+        percent = (i + 1) / total_bus_stops * 100
         # Skip if already processed
         if stop_name in cached_data:
             stop["latitude"] = cached_data[stop_name]["latitude"]
@@ -167,23 +208,26 @@ def generate_bus_stop_map(request):
 
         try:
             # First geocoding attempt
-            location = geolocator.geocode(stop_name, timeout=15)
+            location = geolocator.geocode(stop_name, timeout=20)
             if location and is_in_south_india(location.latitude, location.longitude):
                 set_stop_coordinates(stop, location.latitude, location.longitude, cached_data, stop_name)
                 success_count += 1
             else:
-                # Retry with South India bias
-                location = geolocator.geocode(f"{stop_name}, South India", timeout=20)
+                # Retry with gmaps API
+                location = geocode_using_gmaps(stop_name,20)
+                
                 if location and is_in_south_india(location.latitude, location.longitude):
                     set_stop_coordinates(stop, location.latitude, location.longitude, cached_data, stop_name)
                     success_count += 1
                 else:
+                    
                     handle_failure(stop, stop_name, failures)
                     failure_count += 1
         except Exception as e:
             handle_failure(stop, stop_name, failures)
             failure_count += 1
-
+        percent = (i + 1) / total_bus_stops * 100
+        cache.set('geocoding_progress', percent)
         # Update progress bar
         print_progress_bar(i + 1, len(bus_stops_data))
 
@@ -287,9 +331,10 @@ def print_progress_bar(iteration, total, length=50):
     arrow = '=' * int(round(progress * length) - 1)
     spaces = ' ' * (length - len(arrow))
     percent = round(progress * 100, 1)
+
     sys.stdout.write(f"\r[{arrow}{spaces}] {percent}%")
     sys.stdout.flush()
 
 def get_geocoding_progress(request):
-    
+    progress = round(cache.get('geocoding_progress', 0), 2)
     return JsonResponse({"progress": progress})

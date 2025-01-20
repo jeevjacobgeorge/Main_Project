@@ -3974,5 +3974,29 @@
     "Varakala Temple": {
         "latitude": 8.7437552,
         "longitude": 76.7043803
+    },
+    "Katakada": {
+        "latitude": 8.4492232,
+        "longitude": 77.0120915
+    },
+    "Punnakkadu": {
+        "latitude": 10.916252700000001,
+        "longitude": 76.1491146129161
+    },
+    "Kottackal": {
+        "latitude": 8.4239564,
+        "longitude": 77.138711
+    },
+    "Paliyodu": {
+        "latitude": 8.42933305,
+        "longitude": 77.14827954975082
+    },
+    "Ottashekaramangalam": {
+        "latitude": 8.479043449999999,
+        "longitude": 77.13489096267146
+    },
+    "Cheenivila": {
+        "latitude": 8.92622735,
+        "longitude": 76.85036538377021
     }
 }
