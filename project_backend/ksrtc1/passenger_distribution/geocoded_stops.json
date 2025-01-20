@@ -3930,5 +3930,49 @@
     "Anavoor": {
         "latitude": 8.4442321,
         "longitude": 77.1352748
+    },
+    "Padmavilasam Road": {
+        "latitude": 8.48431641197887,
+        "longitude": 76.94438688105777
+    },
+    "Theviyarkunnu School": {
+        "latitude": 8.6228969,
+        "longitude": 77.10258258731804
+    },
+    "Kochuveli": {
+        "latitude": 8.5103341,
+        "longitude": 76.8970471
+    },
+    "Fathima Nagar": {
+        "latitude": 10.6740689,
+        "longitude": 78.6021894
+    },
+    "Panangode": {
+        "latitude": 8.40177825,
+        "longitude": 76.99494830056625
+    },
+    "Aanakulam": {
+        "latitude": 9.95885055,
+        "longitude": 76.34204501337304
+    },
+    "Kadukkara": {
+        "latitude": 9.7805463,
+        "longitude": 76.4316463
+    },
+    "St Mary's School": {
+        "latitude": 12.8456846,
+        "longitude": 77.609514
+    },
+    "Keezhavoor": {
+        "latitude": 8.6162634,
+        "longitude": 76.8736571
+    },
+    "Kanyakulangara": {
+        "latitude": 8.6295587,
+        "longitude": 76.9374208
+    },
+    "Varakala Temple": {
+        "latitude": 8.7437552,
+        "longitude": 76.7043803
     }
 }

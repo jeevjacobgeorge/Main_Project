@@ -18,7 +18,7 @@ SOUTH_INDIA_LON_MIN = 76.0
 SOUTH_INDIA_LON_MAX = 80.0
 GEO_CACHE_FILE = 'passenger_distribution/geocoded_stops.json'  # Update path as needed
 FAILURE_CACHE_FILE = 'passenger_distribution/geocoding_failures.json'  # Update path as needed
-
+percent = 0
 # Set your file paths and parameters
 
 
@@ -27,33 +27,47 @@ def select_month_time(request):
     month = request.GET.get('month', 'October')
     start_time = int(request.GET.get('start_time', 11))
     end_time = int(request.GET.get('end_time', 18))
-
+    hours = range(1, 25) 
+    days = range(1, 32)
     # Render the page with form
     return render(request, 'passenger_distribution/select_month_time_form.html', {
         'month': month,
         'start_time': start_time,
-        'end_time': end_time
+        'end_time': end_time,
+        'hours': hours,
+        'days': days
     })
 
-# Django view
 def generate_bus_stop_map(request):
+    print("Generating Bus Stop Map...")
+    percent = 0
     month = request.GET.get('month', 'October')  # Default to October
     start_time = int(request.GET.get('start_time', 11))  # Default start time is 11
     end_time = int(request.GET.get('end_time', 18)) 
     file_path = f"passenger_distribution/data/caches/{month}_visualize.csv"
+    
+    start_day = request.GET.get('start_day', None)
+    end_day = request.GET.get('end_day', None)
+    
+    # Convert to integers if they exist and are valid
+    if start_day:
+        start_day = int(start_day) if 1 <= int(start_day) <= 31 else None
+    if end_day:
+        end_day = int(end_day) if 1 <= int(end_day) <= 31 else None
 
     # Read the data from the CSV file
+    print(f"Reading data from: {file_path}")
     data = pd.read_csv(file_path)
     data["DATE"] = data["DATE_HOUR"].str.split(" ").str[0]
     data["TIME"] = data["DATE_HOUR"].str.split(" ").str[1].astype(int)
 
-    # Filter data based on the time range
+    if start_day and end_day:
+        data = data[(data["DATE"].str.split("-").str[2].astype(int) >= start_day) & 
+                    (data["DATE"].str.split("-").str[2].astype(int) <= end_day)]
+    
     data = data[(data["TIME"] >= start_time) & (data["TIME"] <= end_time)]
-
-    # Calculate total number of distinct days
     total_days = len(data["DATE"].unique())
 
-    # Get top bus stops based on passenger count
     top_bus_stops = (
         data.groupby("FROM_STOP_NAME")["TOTAL_PASSENGER"]
         .sum()
@@ -268,14 +282,14 @@ def generate_bus_stop_map(request):
 
     # Return the map within a Django template or directly in response
     return render(request, 'passenger_distribution/map_template.html', {'map_html': map_html})
-
-
-
-# Print progress bar
-def print_progress_bar(iteration, total, bar_length=40):
-    progress = iteration / total
-    arrow = '=' * int(round(progress * bar_length) - 1)
-    spaces = ' ' * (bar_length - len(arrow))
+def print_progress_bar(iteration, total, length=50):
+    progress = (iteration / total)
+    arrow = '=' * int(round(progress * length) - 1)
+    spaces = ' ' * (length - len(arrow))
     percent = round(progress * 100, 1)
-    sys.stdout.write(f'\r[{arrow}{spaces}] {percent}%')
+    sys.stdout.write(f"\r[{arrow}{spaces}] {percent}%")
     sys.stdout.flush()
+
+def get_geocoding_progress(request):
+    
+    return JsonResponse({"progress": progress})

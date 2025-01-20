@@ -9,10 +9,16 @@ from django.http import JsonResponse, HttpResponse
 import io
 from django.core.files.base import ContentFile
 import base64
+import json
 
 def demand_forecast(request):
     if request.method == "GET":
-        return render(request, "forecast_form.html")  # Render a form for user input
+        with open('pred/stops.json','r') as f:
+            stops = json.load(f)
+        context = {
+            'stops': stops,
+        }
+        return render(request, "forecast_form.html",context)  # Render a form for user input
     
     elif request.method == "POST":
         user_to_stop = request.POST.get("to_stop_name")

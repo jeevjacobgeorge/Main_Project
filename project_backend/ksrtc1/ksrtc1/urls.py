@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from passenger_distribution import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('passenger_distribution.urls')),
+    path('', views.select_month_time, name='select_month_time'),
+    # Route for the map generation with the selected month and time
+    path('generate-map/', views.generate_bus_stop_map, name='generate_bus_stop_map'),
     path('pred/', include('pred.urls')),
+    path('geocoding-progress/', views.get_geocoding_progress, name='geocoding_progress'),
+
 
 ]

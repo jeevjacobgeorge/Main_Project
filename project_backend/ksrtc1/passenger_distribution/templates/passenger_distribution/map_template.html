@@ -4,25 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSRTC Passenger Distribution Heat Map</title>
-    <style>
-        #progress-container {
-            width: 100%;
-            height: 30px;
-            background: #f3f3f3;
-            border-radius: 5px;
-            overflow: hidden;
-            display: none;
-        }
-        #progress-bar {
-            width: 0%;
-            height: 100%;
-            background: green;
-            text-align: center;
-            line-height: 30px;
-            color: white;
-        }
 
-    </style>
 </head>
 <body>
     
@@ -43,31 +25,7 @@
     </div>
     {% endif %}
 
-<script>
-    // Start polling for progress
-    function updateProgress() {
-        fetch('/generate_bus_stop_map')  // URL for the view
-            .then(response => response.json())
-            .then(data => {
-                if (data.progress) {
-                    const progressBar = document.getElementById('progress-bar');
-                    progressBar.style.width = data.progress + '%';
-                    progressBar.innerText = data.progress + '%';
-                }
 
-                if (data.progress === 100) {
-                    // Once progress is 100%, hide the progress bar
-                    document.getElementById('progress-container').style.display = 'none';
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
-    // Show progress bar initially
-    document.getElementById('progress-container').style.display = 'block';
-    updateProgress();
-    setInterval(updateProgress, 2000);  // Check progress every 2 seconds
-</script>
 
 </body>
 </html>
