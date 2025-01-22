@@ -3998,5 +3998,61 @@
     "Cheenivila": {
         "latitude": 8.92622735,
         "longitude": 76.85036538377021
+    },
+    "Ettivila": {
+        "latitude": 8.999446869512925,
+        "longitude": 76.98346546224764
+    },
+    "Easwara Vilasam": {
+        "latitude": 8.5021245,
+        "longitude": 76.9638366
+    },
+    "Alumkuzhi": {
+        "latitude": 8.657574799999999,
+        "longitude": 77.03082870613231
+    },
+    "Meenankal": {
+        "latitude": 8.63701665,
+        "longitude": 77.09943956848129
+    },
+    "Sainikschool": {
+        "latitude": 8.5776436,
+        "longitude": 76.8719998
+    },
+    "Panachamoode": {
+        "latitude": 8.4348038,
+        "longitude": 77.1878242
+    },
+    "Kalayil": {
+        "latitude": 11.348945650000001,
+        "longitude": 76.30390979173046
+    },
+    "Manchamcode": {
+        "latitude": 8.4776736,
+        "longitude": 77.1655696
+    },
+    "Vittiyodu": {
+        "latitude": 8.486600249999999,
+        "longitude": 77.17344891451214
+    },
+    "Kidarakuzhy": {
+        "latitude": 8.3686969,
+        "longitude": 77.0177545
+    },
+    "Lms\\museum": {
+        "latitude": 8.5068686,
+        "longitude": 76.9523932
+    },
+    "Kurisady": {
+        "latitude": 9.3784821,
+        "longitude": 76.56476155540712
+    },
+    "Chempancode": {
+        "latitude": 8.70175945,
+        "longitude": 76.95425582698113
+    },
+    "Vallakkadavu": {
+        "latitude": 8.4744163,
+        "longitude": 76.9207543
     }
 }

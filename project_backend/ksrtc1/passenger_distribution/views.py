@@ -214,8 +214,7 @@ def generate_bus_stop_map(request):
                 success_count += 1
             else:
                 # Retry with gmaps API
-                location = geocode_using_gmaps(stop_name,20)
-                
+                location = geocode_using_gmaps(stop_name+",South India",20)
                 if location and is_in_south_india(location.latitude, location.longitude):
                     set_stop_coordinates(stop, location.latitude, location.longitude, cached_data, stop_name)
                     success_count += 1
