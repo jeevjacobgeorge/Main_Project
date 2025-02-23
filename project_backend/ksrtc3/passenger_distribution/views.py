@@ -53,15 +53,15 @@ def ask_gemini(request):
 def select_month_time(request):
     # Default values for the form
     month = request.GET.get('month', 'October')
-    start_time = int(request.GET.get('start_time', 11))
-    end_time = int(request.GET.get('end_time', 18))
+    # start_time = int(request.GET.get('start_time', 11))
+    # end_time = int(request.GET.get('end_time', 18))
     hours = range(1, 25) 
     days = range(1, 32)
     # Render the page with form
     return render(request, 'passenger_distribution/select_month_time_form.html', {
         'month': month,
-        'start_time': start_time,
-        'end_time': end_time,
+        # 'start_time': start_time,
+        # 'end_time': end_time,
         'hours': hours,
         'days': days
     })

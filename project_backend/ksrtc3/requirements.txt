@@ -11,3 +11,4 @@ scikit-learn
 tensorflow
 gmplot
 dotenv
+google-generativeai
