@@ -96,7 +96,14 @@
     <div class="container">
         <form method="POST" action="{% url 'demand_forecast' %}">
             {% csrf_token %}
-            
+            <!-- <label for="from_stop_name">From Stop Name:</label>
+            <select id="from_stop_name" name="to_stop_name" required>
+                <option value="" disabled selected>Select a Stop</option>
+                {% for stop in stops %}
+                    <option value="{{ stop }}">{{ stop }}</option>
+                {% endfor %}
+            </select> -->
+
             <label for="to_stop_name">To Stop Name:</label>
             <select id="to_stop_name" name="to_stop_name" required>
                 <option value="" disabled selected>Select a Stop</option>

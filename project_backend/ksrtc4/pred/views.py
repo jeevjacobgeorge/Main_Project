@@ -21,13 +21,15 @@ def demand_forecast(request):
         return render(request, "forecast_form.html",context)  # Render a form for user input
     
     elif request.method == "POST":
+        # user_from_stop = request.POST.get("from_stop_name")
         user_to_stop = request.POST.get("to_stop_name")
         user_date = request.POST.get("date")
         # Path to the directory containing the part files
         csv_directory_path = 'pred/data/data_grouped_TO_STOP.csv/data_grouped_TO_STOP.csv/part-00000-b01ce6d5-8a45-4ed3-b905-13905c5793c5-c000.csv'
 
         data_grouped_pandas = pd.read_csv(csv_directory_path)
-        # Filter data for the selected stop
+        # Filter data for the selected from stop and to stop
+        # data_grouped_pandas = data_grouped_pandas[data_grouped_pandas['FROM_STOP_NAME'] == user_from_stop]
         data_grouped_pandas = data_grouped_pandas[data_grouped_pandas['TO_STOP_NAME'] == user_to_stop]
 
         # Ensure DATE_HOUR is parsed as a datetime column
@@ -44,12 +46,13 @@ def demand_forecast(request):
 
         try:
             prediction_start_time = pd.to_datetime(f"{user_date} 00:00")
+            prediction_end_time = pd.to_datetime(f"{user_date} 23:59")
         except ValueError:
             return JsonResponse({"error": "Invalid date format. Please use YYYY-MM-DD."})
 
         # Filter for rows before the selected date and get the last 24 rows
         data_filtered = data_grouped_pandas[data_grouped_pandas["DATE_HOUR"] < prediction_start_time].tail(24)
-
+        data_filtered_2days = data_grouped_pandas[data_grouped_pandas["DATE_HOUR"] < prediction_end_time].tail(48)
         if data_filtered.empty:
             return JsonResponse({"error": f"No data available for the 24 hours before {user_date}."})
 
@@ -87,10 +90,11 @@ def demand_forecast(request):
         # Create plot
         plt.figure(figsize=(10, 6))
         actual_demand = data_filtered["TOTAL_PASSENGERS"].values
-        if len(actual_demand) < 24:
-            actual_demand = [0] * (24 - len(actual_demand)) + list(actual_demand)
+        actual_2day_demand = data_filtered_2days["TOTAL_PASSENGERS"].values
+        if len(actual_2day_demand) < 48:
+            actual_2day_demand = [0] * (48 - len(actual_demand)) + list(actual_demand)
 
-        plt.plot(range(-24, 0), actual_demand, label="Actual Demand (Last 24 Hours)", marker='o', color='blue')
+        plt.plot(range(-24, 24), actual_2day_demand, label="Actual Demand (Last 24 Hours)", marker='o', color='blue')
         plt.plot(range(24), predictions_actual, label="Predicted Demand (Next 24 Hours)", marker='o', color='red')
         plt.axvline(x=0, linestyle="--", color="gray", label="Prediction Start")
         plt.xlabel("Hour")
